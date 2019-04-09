@@ -64,6 +64,7 @@ class ChatBot extends Component {
       botAvatar,
       cache,
       cacheName,
+      historySteps,
       customDelay,
       enableMobileAutoFocus,
       userAvatar,
@@ -124,7 +125,10 @@ class ChatBot extends Component {
         cacheName,
         cache,
         firstStep,
-        steps: chatSteps
+        steps: chatSteps,
+        historySteps,
+        botAvatar,
+        userAvatar
       },
       () => {
         // focus input if last step cached is a user step
@@ -726,6 +730,7 @@ ChatBot.propTypes = {
   hideHeader: PropTypes.bool,
   hideSubmitButton: PropTypes.bool,
   hideUserAvatar: PropTypes.bool,
+  historySteps: PropTypes.arrayOf(PropTypes.object),
   inputAttributes: PropTypes.objectOf(PropTypes.any),
   inputStyle: PropTypes.objectOf(PropTypes.any),
   opened: PropTypes.bool,
@@ -775,6 +780,7 @@ ChatBot.defaultProps = {
   hideHeader: false,
   hideSubmitButton: false,
   hideUserAvatar: false,
+  historySteps: [],
   inputStyle: {},
   opened: undefined,
   placeholder: 'Type the message ...',
